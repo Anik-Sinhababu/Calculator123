@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=3, user-scalable=no">
+    <link rel="stylesheet" href="calculator.css"></link>
+  </head>
+  
+  <body>
+    <button class="dark" onclick="
+      let mode = document.querySelector('.dark').innerHTML;
+      if(mode==='🌙')
+      {
+        document.querySelector('.dark').innerHTML = '𖤓';
+        document.querySelector('body').style.backgroundColor='white';
+        document.querySelector('.result').style.color = 'black';
+        document.querySelector('.expression').style.color = 'black';
+        document.querySelector('.dark').style.color = 'rgb(239, 187, 44)';
+        document.querySelector('.dark').style.backgroundColor = 'white';
+        document.querySelector('.title').style.color = 'purple';
+        document.querySelector('.by').style.color='black'
+      }
+      else
+      {
+        document.querySelector('.dark').innerHTML = '🌙';
+        document.querySelector('body').style.backgroundColor='black';
+        document.querySelector('.result').style.color = 'white';
+        document.querySelector('.expression').style.color = 'wheat';
+        document.querySelector('.dark').style.color = 'white';
+        document.querySelector('.dark').style.backgroundColor = 'black';
+        document.querySelector('.title').style.color = 'orange';
+        document.querySelector('.by').style.color='white'
+      }
+      ">🌙</button>
+    <p class="title">Calculator 🖩</p>
+    <p class = "expression"></p>
+    <p class="result"></p>
+    <div>
+    <p>
+      <button class="numeric-button" onclick="
+        calculation += '1';
+        result_calculation +='1';
+        result();
+        console.log(calculation);
+      ">1</button>
+      
+      <button class="numeric-button" onclick="
+        calculation += '2';
+        result_calculation +='2';
+        result();
+        console.log(calculation);
+      ">2</button>
+
+      <button class="numeric-button" onclick="
+        calculation += '3';
+        result_calculation +='3';
+        result();
+        console.log(calculation);
+      ">3</button>
+
+      <button class = "operator-add-button" onclick="
+        calculation += '+';
+        result_calculation += '+';
+        result();
+        console.log(calculation);
+      ">+</button>
+      <button class="sin-operator" onclick="
+      calculation +='sin';
+      result_calculation += 'Math.sin';
+
+      result();
+      ">sin</button>
+    </p>
+
+    <p>
+      <button class="numeric-button" onclick="
+        calculation += '4';
+        result_calculation +='4';
+        result();
+        console.log(calculation);
+      ">4</button>
+      
+      <button class="numeric-button" onclick="
+        calculation += '5';
+        result_calculation +='5';
+        result();
+        console.log(calculation);
+      ">5</button>
+
+      <button class="numeric-button" onclick="
+        calculation += '6';
+        result_calculation += '6';
+        result();
+        console.log(calculation);
+      ">6</button>
+
+      <button class = "operator-button" onclick="
+        calculation += ' - ';
+        result_calculation += '-';
+        result();
+        console.log(calculation);
+      ">-</button>
+      <button class="cos-operator" onclick="
+      calculation +='cos';
+      result_calculation == 'Math.cos'
+      result();
+      ">cos</button>
+    </p>
+
+    <p>
+      <button class="numeric-button" onclick="
+        calculation += '7';
+        result_calculation += '7';
+        result();
+        console.log(calculation);
+      ">7</button>
+      
+      <button class="numeric-button" onclick="
+        calculation += '8';
+        result_calculation += '8';
+        result();
+        console.log(calculation);
+      ">8</button>
+
+      <button class="numeric-button" onclick="
+        calculation += '9';
+        result_calculation += '9';
+        result();
+        console.log(calculation);
+      ">9</button>
+
+      <button class = "operator-mul-button" onclick="
+        calculation += '*';
+        result_calculation += '*';
+        result();
+        console.log(calculation);
+      ">*</button>
+      <button class="tan-operator" onclick="
+      calculation +='tan';
+      result_calculation += 'Math.tan'
+      result();
+      ">tan</button>
+    </p>
+
+    <p>
+      <button class="numeric-button" onclick="
+        calculation += '0';
+        result_calculation += '0';
+        result();
+        console.log(calculation);
+      ">0</button>
+      
+      <button class = "operator-decimal-button" onclick="
+        calculation += '.';
+        result_calculation += '.';
+        result();
+        console.log(calculation);
+      ">.</button>
+
+      <button class = "operator-evaluate-button" onclick="
+        result_calculation = eval(result_calculation);
+        //calculation = result_calculation;
+        //calculation = calculation.toFixed(5);
+        localStorage.setItem('calculate',result_calculation);
+        copy_calculation = calculation;
+        calculation = eval(result_calculation);
+        document.querySelector('.expression').innerHTML = copy_calculation
+        document.querySelector('.result').innerHTML = result_calculation; 
+      ">=</button>
+
+      <button class = "operator-divide-button" onclick="
+        calculation += '/';
+        result_calculation += '/';
+        result();
+        console.log(calculation);
+      ">/</button>
+      <button class = "pow" onclick="
+      calculation += `pow(`;
+      result_calculation += 'Math.pow('
+      result();
+      ">pow</button>
+      
+      
+    </p>
+
+    <p>
+      <button class = "clear-button" onclick="
+        calculation = '';
+        result_calculation = '';
+        copy_calculation = '';
+        document.querySelector('.expression').innerHTML = '';
+        console.log(calculation);
+        result();
+      ">Clear</button>
+      <button class="remove" onclick="
+      calculation = calculation.substring(0, calculation.length-1);
+      result_calculation = result_calculation.substring(0, result_calculation.length-1)
+      result();
+      ">❌</button>
+      <button class="restore" onclick="
+      calculation+=localStorage.getItem('calculate');
+      result_calculation+=localStorage.getItem('calculate');
+      result();">Restore</button>
+      <button class="radian" onclick="
+      calculation += `rad`;
+      result_calculation += `${rad}`;
+      result();
+      ">rad</button>
+    </p>
+    <p>
+        <button class = "comma", onclick="
+        calculation+=',';
+        result_calculation += ',';
+        result()">,</button>
+
+
+        <button class="opening" onclick="
+        calculation +='(';
+        result_calculation += '(';
+        result();
+        ">(</button>
+
+        <button class = "closing" onclick="
+        calculation +=')';
+        result_calculation += ')';
+        result();
+        ">)</button>
+        <button class="sqrt" onclick="
+        calculation += '√(';
+        result_calculation += 'Math.sqrt('
+        result();
+        ">√ </button>
+        <button class = "cubrt" onclick="
+        calculation += '∛(';
+        result_calculation += 'Math.cbrt('
+        result();
+        ">∛</button>
+    </p>
+    <p class="by"><i>Made by Anik</i></p>
+</div>
+    <script>
+      let calculation = '';
+      let copy_calculation = '';
+      let i=1;
+      let result_calculation = '';
+      let rad = '*(Math.PI/180)';
+      function result(){
+        document.querySelector('.result').innerHTML = `${calculation}`;
+      }
+    </script>
+  </body>
+</html>
